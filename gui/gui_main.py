@@ -18,13 +18,17 @@ class Ui_MainWindow(object):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1096, 699)
         MainWindow.setDocumentMode(False)
+
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
+
         self.tabWidget = QtWidgets.QTabWidget(self.centralwidget)
         self.tabWidget.setGeometry(QtCore.QRect(0, 0, 1091, 651))
         self.tabWidget.setObjectName("tabWidget")
+
         self.widget = QtWidgets.QWidget()
         self.widget.setObjectName("widget")
+
         self.swing_page_label = QtWidgets.QLabel(self.widget)
         self.swing_page_label.setGeometry(QtCore.QRect(390, 10, 261, 51))
         font = QtGui.QFont()
@@ -32,57 +36,72 @@ class Ui_MainWindow(object):
         self.swing_page_label.setFont(font)
         self.swing_page_label.setAlignment(QtCore.Qt.AlignCenter)
         self.swing_page_label.setObjectName("swing_page_label")
+
         self.formLayoutWidget = QtWidgets.QWidget(self.widget)
         self.formLayoutWidget.setGeometry(QtCore.QRect(610, 70, 231, 111))
         self.formLayoutWidget.setObjectName("formLayoutWidget")
+
         self.club_stats_formlayout = QtWidgets.QFormLayout(self.formLayoutWidget)
         self.club_stats_formlayout.setRowWrapPolicy(QtWidgets.QFormLayout.WrapLongRows)
         self.club_stats_formlayout.setContentsMargins(0, 0, 0, 0)
         self.club_stats_formlayout.setHorizontalSpacing(16)
         self.club_stats_formlayout.setVerticalSpacing(14)
         self.club_stats_formlayout.setObjectName("club_stats_formlayout")
+
         self.club_speed_res_label = QtWidgets.QLabel(self.formLayoutWidget)
         self.club_speed_res_label.setObjectName("club_speed_res_label")
+
         self.club_stats_formlayout.setWidget(
             0, QtWidgets.QFormLayout.FieldRole, self.club_speed_res_label
         )
         self.proj_distance_res_label_1 = QtWidgets.QLabel(self.formLayoutWidget)
         self.proj_distance_res_label_1.setObjectName("proj_distance_res_label_1")
+
         self.club_stats_formlayout.setWidget(
             2, QtWidgets.QFormLayout.FieldRole, self.proj_distance_res_label_1
         )
+
         self.club_accel_res_label = QtWidgets.QLabel(self.formLayoutWidget)
         self.club_accel_res_label.setObjectName("club_accel_res_label")
+
         self.club_stats_formlayout.setWidget(
             1, QtWidgets.QFormLayout.FieldRole, self.club_accel_res_label
         )
+
         self.club_speed_label = QtWidgets.QLabel(self.formLayoutWidget)
         font = QtGui.QFont()
         font.setPointSize(12)
         self.club_speed_label.setFont(font)
         self.club_speed_label.setObjectName("club_speed_label")
+
         self.club_stats_formlayout.setWidget(
             0, QtWidgets.QFormLayout.LabelRole, self.club_speed_label
         )
+
         self.club_accel_label = QtWidgets.QLabel(self.formLayoutWidget)
         font = QtGui.QFont()
         font.setPointSize(12)
         self.club_accel_label.setFont(font)
         self.club_accel_label.setObjectName("club_accel_label")
+
         self.club_stats_formlayout.setWidget(
             1, QtWidgets.QFormLayout.LabelRole, self.club_accel_label
         )
+
         self.proj_distance_label_1 = QtWidgets.QLabel(self.formLayoutWidget)
         font = QtGui.QFont()
         font.setPointSize(12)
         self.proj_distance_label_1.setFont(font)
         self.proj_distance_label_1.setObjectName("proj_distance_label_1")
+
         self.club_stats_formlayout.setWidget(
             2, QtWidgets.QFormLayout.LabelRole, self.proj_distance_label_1
         )
+
         self.gridLayoutWidget = QtWidgets.QWidget(self.widget)
         self.gridLayoutWidget.setGeometry(QtCore.QRect(40, 70, 426, 120))
         self.gridLayoutWidget.setObjectName("gridLayoutWidget")
+
         self.club_options_grid_layout = QtWidgets.QGridLayout(self.gridLayoutWidget)
         self.club_options_grid_layout.setSizeConstraint(
             QtWidgets.QLayout.SetMinimumSize
@@ -100,24 +119,32 @@ class Ui_MainWindow(object):
         self.club_length_unit_combobox.setObjectName("club_length_unit_combobox")
         self.club_length_unit_combobox.addItem("")
         self.club_length_unit_combobox.addItem("")
+
         self.club_options_grid_layout.addWidget(
             self.club_length_unit_combobox, 1, 2, 1, 1
         )
+
         self.club_type_label = QtWidgets.QLabel(self.gridLayoutWidget)
         font = QtGui.QFont()
         font.setPointSize(12)
         self.club_type_label.setFont(font)
         self.club_type_label.setObjectName("club_type_label")
+
         self.club_options_grid_layout.addWidget(self.club_type_label, 0, 0, 1, 1)
+
         self.club_length_label = QtWidgets.QLabel(self.gridLayoutWidget)
         font = QtGui.QFont()
         font.setPointSize(12)
         self.club_length_label.setFont(font)
         self.club_length_label.setObjectName("club_length_label")
+
         self.club_options_grid_layout.addWidget(self.club_length_label, 1, 0, 1, 1)
+
         self.club_length_spinbox = QtWidgets.QDoubleSpinBox(self.gridLayoutWidget)
         self.club_length_spinbox.setObjectName("club_length_spinbox")
+
         self.club_options_grid_layout.addWidget(self.club_length_spinbox, 1, 1, 1, 1)
+
         self.club_combobox = QtWidgets.QComboBox(self.gridLayoutWidget)
         self.club_combobox.setObjectName("club_combobox")
         self.club_combobox.addItem("")
@@ -145,6 +172,7 @@ class Ui_MainWindow(object):
         self.club_combobox.addItem("")
         self.club_combobox.addItem("")
         self.club_combobox.addItem("")
+
         self.club_options_grid_layout.addWidget(self.club_combobox, 0, 1, 1, 1)
         self.record_swing_button = QtWidgets.QPushButton(self.gridLayoutWidget)
         self.record_swing_button.setObjectName("record_swing_button")
@@ -164,9 +192,11 @@ class Ui_MainWindow(object):
         self.swing_plot_label.setFont(font)
         self.swing_plot_label.setAlignment(QtCore.Qt.AlignCenter)
         self.swing_plot_label.setObjectName("swing_plot_label")
+
         self.horizontalLayoutWidget = QtWidgets.QWidget(self.widget)
         self.horizontalLayoutWidget.setGeometry(QtCore.QRect(890, 80, 151, 71))
         self.horizontalLayoutWidget.setObjectName("horizontalLayoutWidget")
+
         spacerItem = QtWidgets.QSpacerItem(
             40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum
         )
@@ -186,9 +216,11 @@ class Ui_MainWindow(object):
         self.accel_plot_label.setFont(font)
         self.accel_plot_label.setAlignment(QtCore.Qt.AlignCenter)
         self.accel_plot_label.setObjectName("accel_plot_label")
+
         self.tabWidget.addTab(self.widget, "")
         self.tab_2 = QtWidgets.QWidget()
         self.tab_2.setObjectName("tab_2")
+
         self.ball_track_page_label = QtWidgets.QLabel(self.tab_2)
         self.ball_track_page_label.setGeometry(QtCore.QRect(390, 10, 261, 51))
         font = QtGui.QFont()
@@ -196,9 +228,11 @@ class Ui_MainWindow(object):
         self.ball_track_page_label.setFont(font)
         self.ball_track_page_label.setAlignment(QtCore.Qt.AlignCenter)
         self.ball_track_page_label.setObjectName("ball_track_page_label")
+
         self.ball_cam_player = QtWidgets.QWidget(self.tab_2)
         self.ball_cam_player.setGeometry(QtCore.QRect(50, 270, 480, 320))
         self.ball_cam_player.setObjectName("ball_cam_player")
+
         self.ball_cam_label = QtWidgets.QLabel(self.tab_2)
         self.ball_cam_label.setGeometry(QtCore.QRect(220, 230, 137, 23))
         font = QtGui.QFont()
@@ -218,27 +252,34 @@ class Ui_MainWindow(object):
         self.ball_accel_label.setFont(font)
         self.ball_accel_label.setAlignment(QtCore.Qt.AlignCenter)
         self.ball_accel_label.setObjectName("ball_accel_label")
+
         self.formLayoutWidget_2 = QtWidgets.QWidget(self.tab_2)
         self.formLayoutWidget_2.setGeometry(QtCore.QRect(50, 80, 231, 111))
         self.formLayoutWidget_2.setObjectName("formLayoutWidget_2")
+
         self.ball_stats_layout = QtWidgets.QFormLayout(self.formLayoutWidget_2)
         self.ball_stats_layout.setRowWrapPolicy(QtWidgets.QFormLayout.WrapLongRows)
         self.ball_stats_layout.setContentsMargins(0, 0, 0, 0)
         self.ball_stats_layout.setHorizontalSpacing(16)
         self.ball_stats_layout.setVerticalSpacing(14)
         self.ball_stats_layout.setObjectName("ball_stats_layout")
+
         self.ball_init_velocity_res_label = QtWidgets.QLabel(self.formLayoutWidget_2)
         self.ball_init_velocity_res_label.setObjectName("ball_init_velocity_res_label")
+
         self.ball_stats_layout.setWidget(
             0, QtWidgets.QFormLayout.FieldRole, self.ball_init_velocity_res_label
         )
+
         self.proj_distance_res_label_2 = QtWidgets.QLabel(self.formLayoutWidget_2)
         self.proj_distance_res_label_2.setObjectName("proj_distance_res_label_2")
         self.ball_stats_layout.setWidget(
             2, QtWidgets.QFormLayout.FieldRole, self.proj_distance_res_label_2
         )
+
         self.launch_angle_res_label = QtWidgets.QLabel(self.formLayoutWidget_2)
         self.launch_angle_res_label.setObjectName("launch_angle_res_label")
+
         self.ball_stats_layout.setWidget(
             1, QtWidgets.QFormLayout.FieldRole, self.launch_angle_res_label
         )
@@ -247,38 +288,49 @@ class Ui_MainWindow(object):
         font.setPointSize(12)
         self.ball_init_velocity_label.setFont(font)
         self.ball_init_velocity_label.setObjectName("ball_init_velocity_label")
+
         self.ball_stats_layout.setWidget(
             0, QtWidgets.QFormLayout.LabelRole, self.ball_init_velocity_label
         )
+
         self.launch_angle_label = QtWidgets.QLabel(self.formLayoutWidget_2)
         font = QtGui.QFont()
         font.setPointSize(12)
         self.launch_angle_label.setFont(font)
         self.launch_angle_label.setObjectName("launch_angle_label")
+
         self.ball_stats_layout.setWidget(
             1, QtWidgets.QFormLayout.LabelRole, self.launch_angle_label
         )
+
         self.proj_distance_label_2 = QtWidgets.QLabel(self.formLayoutWidget_2)
         font = QtGui.QFont()
         font.setPointSize(12)
         self.proj_distance_label_2.setFont(font)
         self.proj_distance_label_2.setObjectName("proj_distance_label_2")
+
         self.ball_stats_layout.setWidget(
             2, QtWidgets.QFormLayout.LabelRole, self.proj_distance_label_2
         )
+
         self.tabWidget.addTab(self.tab_2, "")
+
         MainWindow.setCentralWidget(self.centralwidget)
+
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1096, 20))
         self.menubar.setObjectName("menubar")
+
         self.menuFile = QtWidgets.QMenu(self.menubar)
         self.menuFile.setObjectName("menuFile")
         self.menuEdit = QtWidgets.QMenu(self.menubar)
         self.menuEdit.setObjectName("menuEdit")
         MainWindow.setMenuBar(self.menubar)
+
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
+
         self.actionTheme = QtWidgets.QAction(MainWindow)
         self.actionTheme.setObjectName("actionTheme")
         self.actionSave = QtWidgets.QAction(MainWindow)
@@ -291,6 +343,7 @@ class Ui_MainWindow(object):
         self.actionTheme_2.setObjectName("actionTheme_2")
         self.actionAbout_Us = QtWidgets.QAction(MainWindow)
         self.actionAbout_Us.setObjectName("actionAbout_Us")
+
         self.menuFile.addAction(self.actionTheme)
         self.menuFile.addAction(self.actionAbout_Us)
         self.menuEdit.addSeparator()
@@ -305,6 +358,8 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
+
+        # Setting text for all buttons/labels
         MainWindow.setWindowTitle(_translate("MainWindow", "Golf Swing Analyzer"))
         self.swing_page_label.setText(_translate("MainWindow", "Swing Analyzer"))
         self.club_speed_res_label.setText(_translate("MainWindow", "0 M/s"))
@@ -323,6 +378,7 @@ class Ui_MainWindow(object):
         self.club_length_unit_combobox.setItemText(1, _translate("MainWindow", "Cm"))
         self.club_type_label.setText(_translate("MainWindow", "Club Type"))
         self.club_length_label.setText(_translate("MainWindow", "Club Length"))
+
         self.club_combobox.setItemText(0, _translate("MainWindow", "Driver"))
         self.club_combobox.setItemText(1, _translate("MainWindow", "1 Wood"))
         self.club_combobox.setItemText(2, _translate("MainWindow", "2 Wood"))
@@ -348,6 +404,7 @@ class Ui_MainWindow(object):
         self.club_combobox.setItemText(22, _translate("MainWindow", "Sand Wedge"))
         self.club_combobox.setItemText(23, _translate("MainWindow", "Lob Wedge"))
         self.club_combobox.setItemText(24, _translate("MainWindow", "Putter"))
+
         self.record_swing_button.setText(_translate("MainWindow", "Record Swing"))
         self.swing_plot_label.setText(_translate("MainWindow", "Swing Plot"))
         self.accel_plot_label.setText(_translate("MainWindow", "Acceleration Plot"))
@@ -371,6 +428,7 @@ class Ui_MainWindow(object):
         self.tabWidget.setTabText(
             self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "Ball Tracker")
         )
+
         self.menuFile.setTitle(_translate("MainWindow", "File"))
         self.menuEdit.setTitle(_translate("MainWindow", "Edit"))
         self.actionTheme.setText(_translate("MainWindow", "New"))
@@ -381,7 +439,42 @@ class Ui_MainWindow(object):
         self.actionAbout_Us.setText(_translate("MainWindow", "About Us"))
 
     def calibrate_system(self):
-        print("Calibrating")
+
+        res = self.find_club_angle(str(self.club_combobox.currentText()))
+        res2 = self.club_length_spinbox.value()
+        print(f"Loft angle of {str(self.club_combobox.currentText())}: {res} degrees")
+        print(f"Length of club: {res2} {self.club_length_unit_combobox.currentText()}")
+
+    def find_club_angle(self, club_type_str):
+        club_angle_dict = {
+            "Driver": 9.5,
+            "1 Wood": 10,
+            "2 Wood": 12,
+            "3 Wood": 15,
+            "4 Wood": 17,
+            "5 Wood": 18,
+            "6 Wood": 19,
+            "7 Wood": 20,
+            "3-hybrid": 21,
+            "4-hybrid": 24,
+            "5-hybrid": 27,
+            "1 Iron": 14,
+            "2 Iron": 17,
+            "3 Iron": 20,
+            "4 Iron": 23,
+            "5 Iron": 26,
+            "6 Iron": 29,
+            "7 Iron": 33,
+            "8 Iron": 37,
+            "9 Iron": 41,
+            "Pitching Wedge": 45,
+            "Approach Wedge": 50,
+            "Sand Wedge": 55,
+            "Lob Wedge": 60,
+            "Putter": 3,
+        }
+
+        return club_angle_dict[club_type_str]
 
     def update_graphs(self):
 

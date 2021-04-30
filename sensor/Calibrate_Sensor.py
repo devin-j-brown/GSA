@@ -18,15 +18,12 @@ out_file_name = "all_data_trimmed.csv"
 time.sleep(1)
 
 
-def get_sensor_data(seconds_to_record, in_file_name, out_file_name):
-    seconds_to_record += 1
+def get_sensor_data():
+
     # Sets t_end based on current clock time
     # Adds 1 second to compensate for sensor startup time
-    t_end = time.time() + seconds_to_record
 
     # Redeclaring the file name to clear out previous swing
-    f = open(in_file_name, "w+")
-    f.close()
 
     # Runs while loop for desired duration
     while time.time() < t_end:
@@ -45,18 +42,8 @@ def get_sensor_data(seconds_to_record, in_file_name, out_file_name):
         splitPacket = dataPacket.split(",")
         splitPacketFloat = [float(item) for item in splitPacket]
         calibration_data = splitPacketFloat[0:4]
-        q = splitPacketFloat[4:8]
-
-        # Calculating pitch, roll, and yaw and appending them to the packet
-        pitch, roll, yaw = quat_to_euler(q[0], q[1], q[2], q[3])
-        splitPacketFloat.extend([pitch, roll, yaw])
 
         # Printing pitch, roll, and yaw for troubleshooting purposes
         print(f"pitch = {pitch}, roll = {roll}, yaw = {yaw}")
 
         # Writing each line of data to the csv
-        with open(in_file_name, mode="a") as euler_angles:
-            euler_writer = csv.writer(euler_angles, delimiter=",")
-            euler_writer.writerow(splitPacketFloat)
-
-    trim_csv(in_file_name, out_file_name)

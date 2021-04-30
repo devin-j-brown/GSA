@@ -11,6 +11,39 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 import numpy as np
 import random
+from mplwidget import MplWidget, MplWidget3D
+import sys, os
+from PyQt5.QtWidgets import (
+    QApplication,
+    QDialog,
+    QDialogButtonBox,
+    QLabel,
+    QMainWindow,
+    QPushButton,
+    QVBoxLayout,
+)
+
+sys.path.append(os.path.join(os.path.dirname(__file__), "..", "sensor"))
+from Sensor_Driver import get_sensor_data
+
+
+class CustomDialog(QtWidgets.QDialog):
+    def __init__(self, parent=None):
+        super().__init__(parent=parent)
+
+        self.setWindowTitle("HELLO!")
+
+        QBtn = QDialogButtonBox.Ok | QDialogButtonBox.Cancel
+
+        self.buttonBox = QDialogButtonBox(QBtn)
+        self.buttonBox.accepted.connect(self.accept)
+        self.buttonBox.rejected.connect(self.reject)
+
+        self.layout = QVBoxLayout()
+        message = QLabel("Something happened, is that OK?")
+        self.layout.addWidget(message)
+        self.layout.addWidget(self.buttonBox)
+        self.setLayout(self.layout)
 
 
 class Ui_MainWindow(object):
@@ -357,6 +390,7 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
+
         _translate = QtCore.QCoreApplication.translate
 
         # Setting text for all buttons/labels
@@ -478,6 +512,12 @@ class Ui_MainWindow(object):
 
     def update_graphs(self):
 
+        seconds_to_record = 10
+        in_file_name = "all_data.csv"
+        out_file_name = "all_data_trimmed.csv"
+
+        get_sensor_data(seconds_to_record, in_file_name, out_file_name)
+
         # Data for a three-dimensional line
         zline = np.linspace(0, 15, 1000)
         xline = np.sin(zline)
@@ -529,9 +569,6 @@ class Ui_MainWindow(object):
 
         self.MplWidget_4.canvas.axes.set_title("2D Test with Dummy Data")
         self.MplWidget_4.canvas.draw()
-
-
-from mplwidget import MplWidget, MplWidget3D
 
 
 if __name__ == "__main__":

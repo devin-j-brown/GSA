@@ -11,14 +11,11 @@ from pyquaternion import Quaternion
 # Make sure to change the usb device accordingly
 arduinoData = serial.Serial("/dev/ttyUSB0", 115200)
 
-seconds_to_record = 10
-in_file_name = "all_data.csv"
-out_file_name = "all_data_trimmed.csv"
-
-time.sleep(1)
-
 
 def get_sensor_data(seconds_to_record, in_file_name, out_file_name):
+
+    time.sleep(1)
+
     seconds_to_record += 1
     # Sets t_end based on current clock time
     # Adds 1 second to compensate for sensor startup time

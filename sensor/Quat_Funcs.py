@@ -14,6 +14,7 @@ def quat_to_euler(q0, q1, q2, q3):
     return pitch, roll, yaw
 
 
+# Normalizes a quaternion so the euclidean distance <= 1
 def normalize_quat(q0, q1, q2, q3):
     d = math.sqrt(q0 ** 2 + q1 ** 2 + q2 ** 2 + q3 ** 2)
     if d == 0:

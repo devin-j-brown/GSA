@@ -512,7 +512,7 @@ class Ui_MainWindow(object):
 
     def update_graphs(self):
 
-        seconds_to_record = 5
+        seconds_to_record = 10
         in_file_name = "all_data.csv"
         out_file_name = "all_data_trimmed.csv"
 

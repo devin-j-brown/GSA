@@ -49,7 +49,8 @@ def get_sensor_data(seconds_to_record, in_file_name, out_file_name):
         splitPacketFloat.extend([pitch, roll, yaw])
 
         # Printing pitch, roll, and yaw for troubleshooting purposes
-        print(f"pitch = {pitch}, roll = {roll}, yaw = {yaw}")
+        # print(f"pitch = {pitch}, roll = {roll}, yaw = {yaw}")
+        print(f"{splitPacketFloat[8]},\t{splitPacketFloat[9]},\t{splitPacketFloat[10]}")
 
         # Writing each line of data to the csv
         with open(in_file_name, mode="a") as euler_angles:

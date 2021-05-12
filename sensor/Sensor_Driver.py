@@ -14,9 +14,9 @@ arduinoData = serial.Serial("/dev/ttyUSB0", 115200)
 
 def get_sensor_data(seconds_to_record, in_file_name, out_file_name):
 
-    time.sleep(1)
+    time.sleep(1.5)
 
-    seconds_to_record += 1
+    seconds_to_record += 1.5
     # Sets t_end based on current clock time
     # Adds 1 second to compensate for sensor startup time
     t_end = time.time() + seconds_to_record

@@ -13,6 +13,7 @@ import numpy as np
 import random
 from mplwidget import MplWidget, MplWidget3D
 import sys, os
+
 from PyQt5.QtWidgets import (
     QApplication,
     QDialog,
@@ -25,7 +26,7 @@ from PyQt5.QtWidgets import (
 
 sys.path.append(os.path.join(os.path.dirname(__file__), "..", "sensor"))
 from Sensor_Driver import get_sensor_data
-
+from Interpret_Sensor_Data import *
 
 class CustomDialog(QtWidgets.QDialog):
     def __init__(self, parent=None):
@@ -87,12 +88,12 @@ class Ui_MainWindow(object):
         self.club_stats_formlayout.setWidget(
             0, QtWidgets.QFormLayout.FieldRole, self.club_speed_res_label
         )
-        self.proj_distance_res_label_1 = QtWidgets.QLabel(self.formLayoutWidget)
-        self.proj_distance_res_label_1.setObjectName("proj_distance_res_label_1")
+        # self.proj_distance_res_label_1 = QtWidgets.QLabel(self.formLayoutWidget)
+        # self.proj_distance_res_label_1.setObjectName("proj_distance_res_label_1")
 
-        self.club_stats_formlayout.setWidget(
-            2, QtWidgets.QFormLayout.FieldRole, self.proj_distance_res_label_1
-        )
+        # self.club_stats_formlayout.setWidget(
+        #     2, QtWidgets.QFormLayout.FieldRole, self.proj_distance_res_label_1
+        # )
 
         self.club_accel_res_label = QtWidgets.QLabel(self.formLayoutWidget)
         self.club_accel_res_label.setObjectName("club_accel_res_label")
@@ -121,15 +122,15 @@ class Ui_MainWindow(object):
             1, QtWidgets.QFormLayout.LabelRole, self.club_accel_label
         )
 
-        self.proj_distance_label_1 = QtWidgets.QLabel(self.formLayoutWidget)
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.proj_distance_label_1.setFont(font)
-        self.proj_distance_label_1.setObjectName("proj_distance_label_1")
+        # self.proj_distance_label_1 = QtWidgets.QLabel(self.formLayoutWidget)
+        # font = QtGui.QFont()
+        # font.setPointSize(12)
+        # self.proj_distance_label_1.setFont(font)
+        # self.proj_distance_label_1.setObjectName("proj_distance_label_1")
 
-        self.club_stats_formlayout.setWidget(
-            2, QtWidgets.QFormLayout.LabelRole, self.proj_distance_label_1
-        )
+        # self.club_stats_formlayout.setWidget(
+        #     2, QtWidgets.QFormLayout.LabelRole, self.proj_distance_label_1
+        # )
 
         self.gridLayoutWidget = QtWidgets.QWidget(self.widget)
         self.gridLayoutWidget.setGeometry(QtCore.QRect(40, 70, 426, 120))
@@ -304,11 +305,11 @@ class Ui_MainWindow(object):
             0, QtWidgets.QFormLayout.FieldRole, self.ball_init_velocity_res_label
         )
 
-        self.proj_distance_res_label_2 = QtWidgets.QLabel(self.formLayoutWidget_2)
-        self.proj_distance_res_label_2.setObjectName("proj_distance_res_label_2")
-        self.ball_stats_layout.setWidget(
-            2, QtWidgets.QFormLayout.FieldRole, self.proj_distance_res_label_2
-        )
+        # self.proj_distance_res_label_2 = QtWidgets.QLabel(self.formLayoutWidget_2)
+        # self.proj_distance_res_label_2.setObjectName("proj_distance_res_label_2")
+        # self.ball_stats_layout.setWidget(
+        #     2, QtWidgets.QFormLayout.FieldRole, self.proj_distance_res_label_2
+        # )
 
         self.launch_angle_res_label = QtWidgets.QLabel(self.formLayoutWidget_2)
         self.launch_angle_res_label.setObjectName("launch_angle_res_label")
@@ -336,15 +337,15 @@ class Ui_MainWindow(object):
             1, QtWidgets.QFormLayout.LabelRole, self.launch_angle_label
         )
 
-        self.proj_distance_label_2 = QtWidgets.QLabel(self.formLayoutWidget_2)
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.proj_distance_label_2.setFont(font)
-        self.proj_distance_label_2.setObjectName("proj_distance_label_2")
+        # self.proj_distance_label_2 = QtWidgets.QLabel(self.formLayoutWidget_2)
+        # font = QtGui.QFont()
+        # font.setPointSize(12)
+        # self.proj_distance_label_2.setFont(font)
+        # self.proj_distance_label_2.setObjectName("proj_distance_label_2")
 
-        self.ball_stats_layout.setWidget(
-            2, QtWidgets.QFormLayout.LabelRole, self.proj_distance_label_2
-        )
+        # self.ball_stats_layout.setWidget(
+        #     2, QtWidgets.QFormLayout.LabelRole, self.proj_distance_label_2
+        # )
 
         self.tabWidget.addTab(self.tab_2, "")
 
@@ -397,13 +398,13 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "Golf Swing Analyzer"))
         self.swing_page_label.setText(_translate("MainWindow", "Swing Analyzer"))
         self.club_speed_res_label.setText(_translate("MainWindow", "0 M/s"))
-        self.proj_distance_res_label_1.setText(_translate("MainWindow", "0 M"))
+        # self.proj_distance_res_label_1.setText(_translate("MainWindow", "0 M"))
         self.club_accel_res_label.setText(_translate("MainWindow", "0 M/s<sup>2</sup>"))
         self.club_speed_label.setText(_translate("MainWindow", "Max Club Speed"))
         self.club_accel_label.setText(_translate("MainWindow", "Max Club Accel."))
-        self.proj_distance_label_1.setText(
-            _translate("MainWindow", "Projected Distance")
-        )
+        # self.proj_distance_label_1.setText(
+        #     _translate("MainWindow", "Projected Distance")
+        # )
         self.calibrate_button.setText(_translate("MainWindow", "Calibrate"))
 
         self.club_length_unit_combobox.setItemText(
@@ -450,15 +451,15 @@ class Ui_MainWindow(object):
         self.ball_cam_label.setText(_translate("MainWindow", "Ball Camera"))
         self.ball_accel_label.setText(_translate("MainWindow", "Ball Acceleration"))
         self.ball_init_velocity_res_label.setText(_translate("MainWindow", "0 M/s"))
-        self.proj_distance_res_label_2.setText(_translate("MainWindow", "0 M"))
+        # self.proj_distance_res_label_2.setText(_translate("MainWindow", "0 M"))
         self.launch_angle_res_label.setText(_translate("MainWindow", "0 Deg"))
         self.ball_init_velocity_label.setText(
             _translate("MainWindow", "Initial Velocity")
         )
         self.launch_angle_label.setText(_translate("MainWindow", "Launch Angle"))
-        self.proj_distance_label_2.setText(
-            _translate("MainWindow", "Projected Distance")
-        )
+        # self.proj_distance_label_2.setText(
+        #     _translate("MainWindow", "Projected Distance")
+        # )
         self.tabWidget.setTabText(
             self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "Ball Tracker")
         )
@@ -511,64 +512,68 @@ class Ui_MainWindow(object):
         return club_angle_dict[club_type_str]
 
     def update_graphs(self):
-
-        seconds_to_record = 10
+        # Parameters for swing recording
+        seconds_to_record = 5
         in_file_name = "all_data.csv"
         out_file_name = "all_data_trimmed.csv"
 
+        # Initiating recording script
         get_sensor_data(seconds_to_record, in_file_name, out_file_name)
 
-        # Data for a three-dimensional line
-        zline = np.linspace(0, 15, 1000)
-        xline = np.sin(zline)
-        yline = np.cos(zline)
-        # ax.plot3D(xline, yline, zline, "gray")
+        # Loading raw swing data
+        raw_data = read_csv_data("all_data_trimmed.csv")
 
-        # Data for three-dimensional scattered points
-        zdata = 15 * np.random.random(100)
-        xdata = np.sin(zdata) + 0.1 * np.random.randn(100)
-        ydata = np.cos(zdata) + 0.1 * np.random.randn(100)
-        # ax.scatter3D(xdata, ydata, zdata, c=zdata, cmap="Greens")
+        # Processing swing data
+        timeVsQuat, timeVsLinAccel, timeVsEulerAngs, timeVsInvQuat = processRawData(raw_data)
 
+        # Grabbing club length from the GUI
+        clubLen = float( self.club_length_spinbox.value())
+        if clubLen == 0:
+            clubLen = 45
+
+        if self.club_length_unit_combobox.currentText() == "Inches":
+            clubLen*=2.54
+            clubLen/=100
+        
+        else:
+            clubLen/=100
+
+        # Interpreting quaterions to find position
+        xs, ys, zs = plotQuats(timeVsQuat, clubLen)
+        
+        
+
+        ######### Graph 1 #############
+        
+        # Plotting swing
         self.MplWidget.canvas.axes.clear()
-        self.MplWidget.canvas.axes.plot3D(xline, yline, zline, "gray")
+        self.MplWidget.canvas.axes.plot3D(xs, ys, zs, "gray")
         self.MplWidget.canvas.axes.scatter3D(
-            xdata, ydata, zdata, c=zdata, cmap="Greens"
+            xs, ys, zs, color = "green"
         )
-        self.MplWidget.canvas.axes.set_title("3D Test with Dummy Data")
         self.MplWidget.canvas.draw()
 
-        fs = 500
-        f = random.randint(1, 100)
-        ts = 1 / fs
-        length_of_signal = 100
-        t = np.linspace(0, 1, length_of_signal)
+        ######### Graph 2 #############
+        x1, y1, y2, y3 = 0, 0, 0, 0
+        x1, y1, y2, y3 = findAccel(timeVsLinAccel)
 
-        cosinus_signal = np.cos(2 * np.pi * f * t)
-        sinus_signal = np.sin(2 * np.pi * f * t)
+      
+        dts = [t-x1[0] for t in x1]
+        
+
+        maxAccel = findMaxAccel(x1, y1, y2, y3)
+        self.club_accel_res_label.setText(f'{maxAccel:.2f} M/s<sup>2</sup>')
+        
+        maxSpeed = findMaxSpeed(dts, xs, ys, zs)
+        self.club_speed_res_label.setText(f'{maxSpeed:.2f} M/s')
 
         self.MplWidget_2.canvas.axes.clear()
-        self.MplWidget_2.canvas.axes.plot(t, cosinus_signal)
-        self.MplWidget_2.canvas.axes.plot(t, sinus_signal)
-
-        self.MplWidget_2.canvas.axes.set_title("2D Test with Dummy Data")
+        self.MplWidget_2.canvas.axes.plot(dts, y1, label="x accel")
+        self.MplWidget_2.canvas.axes.plot(dts, y2, label="y accel")
+        self.MplWidget_2.canvas.axes.plot(dts, y3, label="z accel")
+        self.MplWidget_2.canvas.axes.legend()
         self.MplWidget_2.canvas.draw()
-
-        fs = 500
-        f = random.randint(1, 100)
-        ts = 1 / fs
-        length_of_signal = 100
-        t = np.linspace(0, 1, length_of_signal)
-
-        cosinus_signal = np.cos(2 * np.pi * f * t)
-        sinus_signal = np.sin(2 * np.pi * f * t)
-
-        self.MplWidget_4.canvas.axes.clear()
-        self.MplWidget_4.canvas.axes.plot(t, cosinus_signal)
-        self.MplWidget_4.canvas.axes.plot(t, sinus_signal)
-
-        self.MplWidget_4.canvas.axes.set_title("2D Test with Dummy Data")
-        self.MplWidget_4.canvas.draw()
+       
 
 
 if __name__ == "__main__":
